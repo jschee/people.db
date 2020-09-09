@@ -1,0 +1,7 @@
+var button = document.querySelector('.delete-note')
+var button_slug = button.dataset.slug
+var article = document.getElementById(`note-${button_slug}`)
+article.remove();
+
+
+

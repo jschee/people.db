@@ -1,0 +1,23 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <%= favicon_link_tag asset_pack_path('media/images/favicon.png'), :rel => 'icon', :type =>  'image/png' %>
+    <title><%= content_for?(:html_title) ? yield(:html_title) : "people.db - your personal database" %></title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <% if content_for(:turbolinks_cache) %>
+      <%= yield(:turbolinks_cache) %>
+    <% end %>
+  </head>
+
+  <body class="bg-gray-200">
+    <%= render 'layouts/navbar' %>
+    <section class="bg-white max-w-5xl mx-auto h-full shadow-md px-16 py-12 overflow-y-auto" style="height: calc(100vh - 4.8rem)">
+      <%= yield %>
+    </section>
+  </body>
+</html>

@@ -1,0 +1,4 @@
+var content = `<%= j render "note", n: @note %>`;
+var target = document.getElementById('contactnote');
+target.insertAdjacentHTML('afterbegin',content);
+document.querySelector('form').reset();

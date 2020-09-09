@@ -1,0 +1,6 @@
+<%= form_with model: @note do |f| %>
+  <%= f.hidden_field :contact_id, value: @contact.id %>
+  <%= f.text_area :description, class: 'border w-full p-2', rows: 4 %>
+  <br>
+  <%= f.submit 'save_note', class: "bg-blue-500 hover:bg-blue-400 text-white p-2 rounded hover:shadow-sm", data: { disable_with: "saving..." } %>
+<% end %>

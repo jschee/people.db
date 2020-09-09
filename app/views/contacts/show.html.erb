@@ -1,0 +1,61 @@
+<div class="clearfix">
+  <%= render 'shared/sidebar' %>
+  <main class="float-right w-5/6 ">
+    <p class="font-semibold mb-6">Contact Information</p>
+    <div class="mb-16">
+      <div class="w-full border-b relative">
+        <div class="rounded-full bg-gray-400 h-24 w-24 flex justify-center items-center absolute" style="top: -3em; left: 43.5%;">
+          <% if @contact.avatar.present? %>
+            <%= image_tag(@contact.avatar, class: "rounded-full w-24 h-24") %>
+          <% else %>
+            <svg id="avatar-placeholder" fill="none" viewBox="0 0 24 24" stroke="#fafafa" class="user w-12 h-12"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
+          <% end %>
+        </div>
+      </div>
+    </div>
+    <section>
+      <div class="flex w-full justify-end">
+        <%= link_to "edit_contact_info", edit_contact_path(slug: @contact.slug), class: "bg-blue-500 hover:bg-blue-400 text-white p-2 rounded hover:shadow-sm"%>
+      </div>
+      <small>Name</small>
+      <p class="text-lg"><%= @contact.first_name %> <%= @contact.last_name %></p>
+      <small>Email</small>
+      <p class="text-lg"><%= @contact.email %></p>
+      <small>Phone Number</small>
+      <p class="text-lg"><%= @contact.phone_number %></p>
+      <small>Personal Website</small>
+      <p class="text-lg"><%= @contact.personal_website %></p>
+      <small>Address 1</small>
+      <p class="text-lg"><%= @contact.address_1 %></p>
+      <small>Address 2</small>
+      <p class="text-lg"><%= @contact.address_2 %></p>
+      <small>City, State/Province, Country</small>
+      <p class="text-lg"><%= @contact.city %>, <%= @contact.state %>, <%= @contact.country %></p>
+      <small>Occupation</small>
+      <p class="text-lg"><%= @contact.occupation %></p>
+      <small>Industry</small>
+      <p class="text-lg"><%= @contact.industry %></p>
+      <small>Company Website</small>
+      <p class="text-lg"><%= @contact.company_website %></p>
+      <small>Tags</small>
+      <p>
+      <% @contact.tags.each do |t|  %>
+        <%= link_to tags_search_path(tag: t.name) do %>
+          <div class="tag-button rounded duration-300 inline-block"><%= t.name %></div>
+        <% end %>
+      <% end %>
+      </p>
+    </section>
+    <hr class="my-4">
+    <section>
+      <p class="font-semibold mb-6">Notes</p>
+      <%= render 'note_form' %>
+      <div id="contactnote">
+        <% @contact.notes.order(created_at: 'desc').each do |n| %>
+          <div><%= render "note", n: n %></div>
+        <% end %>
+      </div>
+    </section>
+  </main>
+</div>
+

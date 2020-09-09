@@ -1,0 +1,23 @@
+
+<aside class="float-left mt-8 w-1/6 pr-8 sticky top-0">
+  <ul>
+    <%= link_to root_path do %>
+      <li class="mb-2 hover:text-blue-500">your_contacts</li>
+    <% end %>
+    <%= link_to tags_path do %>
+    <li class="mb-2 hover:text-blue-500">contact_tags</li>
+    <% end %>
+    <li class="mb-2 text-green-600"><%= Time.now.strftime("%b").downcase %>_birthdays</li>
+    <ul>
+    <% contacts_birthdays.each do |x| %>
+      <%= link_to contact_path(slug: x.slug) do %>
+      <li class="text-xs mb-2 p-1 hover:bg-blue-100">
+        <div><%= x.first_name.capitalize%> <%= x.last_name.capitalize%></div>
+        <%= x.birthday.strftime("%b %d, %Y") %><br><%= @current_year - x.birthday.strftime('%Y').to_i + 1 %> years old
+      </li>
+      <% end %>
+      <hr class="my-2">
+    <% end %>
+    </ul>
+  </ul>
+</aside>

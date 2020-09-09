@@ -1,0 +1,11 @@
+<article id="note-<%= n.slug %>">
+  <div class="my-4">
+    <div class="flex justify-between items-center">
+      <%= n.created_at.strftime("%m""/""%d""/""%Y") %>
+      <%= button_to 'delete_note', delete_note_path(slug: n.slug), method: :delete, data: { confirm: 'Are you sure?', disable_with: 'deleting...', slug: n.slug }, remote: true, class: "delete-note bg-red-500 hover:bg-red-400 text-white p-2 rounded hover:shadow-sm text-xs" %>
+    </div>
+    <br>
+    <%= n.description %>
+  </div>
+  <hr>
+</article>
