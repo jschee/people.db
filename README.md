@@ -1,24 +1,11 @@
-# README
+# people.db
+A database for you and your people. This project was inspired by [this article from the one of a kind derek sivers](https://sive.rs/dbt).
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+A Ruby on Rails 6.0 Project
 
-Things you may want to cover:
+- `bundle install`
+- `rails db:create db:migrate`
+- `rails s`
 
-* Ruby version
+Apologies if I'm missing some steps. This project is a work in progress.
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
